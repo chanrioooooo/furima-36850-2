@@ -1,29 +1,37 @@
 # テーブル設計
 
-## usersテーブル
+## users テーブル
 
-| Column              | Type   | Options                   |
-| ------------------- | ------ | ------------------------- |
-| email               | string | null: false, unique: true |
-| encrypted_password  | string | null: false               |
-| name                | string | null: false               |
-| profile             | text   | null: false               |
-| occupation          | text   | null: false               |
-| position            | text   | null: false               |
+| Column              | Type    | Options                   |
+| ------------------- | ------- | ------------------------- |
+| nickname            | string  | null: false               |
+| email               | string  | null: false, unique: true |
+| encrypted_password  | string  | null: false               |
+| last_name           | string  | null: false               |
+| first_name          | string  | null: false               |
+| last_name_kana      | string  | null: false               |
+| first_name_kana     | string  | null: false               |
+| date_of_birth       | date    | null: false               |
 
 ### Association
 
 - has_many :items
-- has_many :purchase
+- has_many :purchases
 
-## itemsテーブル
+## items テーブル
 
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| title      | string     | null: false                    |
-| catch_copy | text       | null: false                    |
-| concept    | text       | null: false                    |
-| user       | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| product_name     | string     | null: false                    |
+| explanation      | text       | null: false                    |
+| category_id      | integer    | null: false                    |
+| situation_id     | integer    | null: false                    |
+| consignor_id     | integer    | null: false                    |
+| shipping_area_id | integer    | null: false                    |
+| days_to_ship_id  | integer    | null: false                    |
+| price            | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
+
 
 ### Association
 
@@ -31,16 +39,30 @@
 - has_one :purchase
 
 
-## purchaseテーブル
+## purchases テーブル
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| content    | text       | null: false                    |
-| prototype  | references | null: false, foreign_key: true |
 | user       | references | null: false, foreign_key: true |
+| item       | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
+- has_one :address
 
+## addresses テーブル
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| post_code        | string     | null: false                    |
+| shipping_area_id | integer    | null: false                    |
+| municipalities   | string     | null: false                    |
+| address          | string     | null: false                    |
+| building         | string     |                                |
+| telephone_num    | string     | null: false                    |
+| purchase         | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :purchase
