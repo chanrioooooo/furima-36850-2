@@ -53,15 +53,15 @@
 - has_one :address
 
 ## addresses テーブル
-| Column           | Type       | Options     |
-| ---------------- | ---------- | ----------- |
-| post_code        | string     | null: false |
-| shipping_area_id | integer    | null: false |
-| municipalities   | string     | null: false |
-| address          | string     | null: false |
-| building         | string     |             |
-| telephone_num    | string     | null: false |
-| purchase         | references | null: false |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| post_code        | string     | null: false                    |
+| shipping_area_id | integer    | null: false                    |
+| municipalities   | string     | null: false                    |
+| address          | string     | null: false                    |
+| building         | string     |                                |
+| telephone_num    | string     | null: false                    |
+| purchase         | references | null: false, foreign_key: true |
 
 ### Association
 
