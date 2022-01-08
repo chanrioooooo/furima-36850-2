@@ -11,7 +11,7 @@
 | first_name          | string  | null: false               |
 | last_name_kana      | string  | null: false               |
 | first_name_kana     | string  | null: false               |
-| date_of_birth       | integer | null: false               |
+| date_of_birth       | date    | null: false               |
 
 ### Association
 
@@ -20,18 +20,17 @@
 
 ## items テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| product_name  | string     | null: false                    |
-| explanation   | text       | null: false                    |
-| category      | enum       | null: false                    |
-| situation     | enum       | null: false                    |
-| consignor     | enum       | null: false                    |
-| shipping_area | enum       | null: false                    |
-| days_to_ship  | enum       | null: false                    |
-| price         | integer    | null: false                    |
-| seller        | string     | null: false                    |
-| user          | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| product_name     | string     | null: false                    |
+| explanation      | text       | null: false                    |
+| category_id      | integer    | null: false                    |
+| situation_id     | integer    | null: false                    |
+| consignor_id     | integer    | null: false                    |
+| shipping_area_id | integer    | null: false                    |
+| days_to_ship_id  | integer    | null: false                    |
+| price            | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -40,30 +39,30 @@
 - has_one :purchase
 
 
-## purchase テーブル
+## purchases テーブル
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| buyer      | text       | null: false                    |
+| user       | references | null: false, foreign_key: true |
 | item       | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :item
+- belongs_to :item
 - has_one :address
 
 ## addresses テーブル
-| Column         | Type       | Options     |
-| -------------- | ---------- | ----------- |
-| post_code      | integer    | null: false |
-| prefectures    | enum       | null: false |
-| municipalities | string     | null: false |
-| address        | string     | null: false |
-| building       | string     |             |
-| telephone_num  | integer    | null: false |
-| user           | references | null: false |
+| Column           | Type       | Options     |
+| ---------------- | ---------- | ----------- |
+| post_code        | string     | null: false |
+| shipping_area_id | integer    | null: false |
+| municipalities   | string     | null: false |
+| address          | string     | null: false |
+| building         | string     |             |
+| telephone_num    | string     | null: false |
+| purchase         | references | null: false |
 
 ### Association
 
-- has_one :purchase
+- belongs_to :purchase
