@@ -22,5 +22,5 @@ class User < ApplicationRecord
   validates_format_of :first_name_kana, with: FIRST_NAME_KANA_REGEX
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable  has_many :purchases
+         :recoverable, :rememberable, :validatable
 end
