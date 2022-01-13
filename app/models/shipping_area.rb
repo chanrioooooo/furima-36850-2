@@ -14,7 +14,7 @@ class Shipping_area < ActiveHash::Base
     { id: 12, name: '埼玉' },
     { id: 13, name: '千葉' },
     { id: 14, name: '東京' },
-    { id: 15, name: '神奈川' }
+    { id: 15, name: '神奈川' },
     { id: 16, name: '新潟' },
     { id: 17, name: '富山' },
     { id: 18, name: '石川' },
@@ -39,7 +39,7 @@ class Shipping_area < ActiveHash::Base
     { id: 37, name: '徳島' },
     { id: 38, name: '香川' },
     { id: 39, name: '愛媛' },
-    { id: 40, name: '高知' }
+    { id: 40, name: '高知' },
     { id: 41, name: '福岡' },
     { id: 42, name: '佐賀' },
     { id: 43, name: '長崎' },
