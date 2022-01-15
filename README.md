@@ -27,8 +27,8 @@
 | category_id      | integer    | null: false                    |
 | situation_id     | integer    | null: false                    |
 | consignor_id     | integer    | null: false                    |
-| shipping_area_id | integer    | null: false                    |
-| days_to_ship_id  | integer    | null: false                    |
+| area_id          | integer    | null: false                    |
+| day_id           | integer    | null: false                    |
 | price            | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true |
 
@@ -56,7 +56,7 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | post_code        | string     | null: false                    |
-| shipping_area_id | integer    | null: false                    |
+| area_id          | integer    | null: false                    |
 | municipalities   | string     | null: false                    |
 | address          | string     | null: false                    |
 | building         | string     |                                |

@@ -3,17 +3,16 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :situation
   belongs_to :consignor
-  belongs_to :shipping_area
-  belongs_to :days_to_ship
+  belongs_to :area
+  belongs_to :day
 
-  validates :product_name, :explanation, :category, :situation, :consignor, 
-            :shipping_area, :days_to_ship, :price, presence: true
+  validates :product_name, :explanation, :category, :situation, :consignor, :area, :day, :price, presence: true
 
   validates :category_id,      numericality: { other_than: 1 , message: "can't be blank" }
   validates :situation_id,     numericality: { other_than: 1 , message: "can't be blank" }
   validates :consignor_id,     numericality: { other_than: 1 , message: "can't be blank" }
-  validates :shipping_area_id, numericality: { other_than: 1 , message: "can't be blank" }
-  validates :days_to_ship_id,  numericality: { other_than: 1 , message: "can't be blank" }
+  validates :area_id,          numericality: { other_than: 1 , message: "can't be blank" }
+  validates :day_id,           numericality: { other_than: 1 , message: "can't be blank" }
 
   has_one_attached :image
 

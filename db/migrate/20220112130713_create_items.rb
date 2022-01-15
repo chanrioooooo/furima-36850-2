@@ -6,8 +6,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string  :category_id,      null: false
       t.string  :situation_id,     null: false
       t.string  :consignor_id,     null: false
-      t.string  :shipping_area_id, null: false
-      t.string  :days_to_ship_id,  null: false
+      t.string  :area_id,          null: false
+      t.string  :day_id,           null: false
       t.integer :price,            null: false
       t.string  :user_id,          null: false
     end
