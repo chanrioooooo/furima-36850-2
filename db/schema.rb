@@ -34,15 +34,15 @@ ActiveRecord::Schema.define(version: 2022_01_12_133407) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_items_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_items_on_reset_password_token", unique: true
+    t.string "product_name", null: false
+    t.text "explanation", null: false
+    t.string "category_id", null: false
+    t.string "situation_id", null: false
+    t.string "consignor_id", null: false
+    t.string "shipping_area_id", null: false
+    t.string "days_to_ship_id", null: false
+    t.integer "price", null: false
+    t.string "user_id", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
