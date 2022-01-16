@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-<<<<<<< Updated upstream
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :situation
@@ -19,10 +18,8 @@ class Item < ApplicationRecord
   validates :day_id,           numericality: { other_than: 1 , message: "can't be blank" }
   validates :price,            numericality: { only_integer:true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 
-=======
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
->>>>>>> Stashed changes
 end
