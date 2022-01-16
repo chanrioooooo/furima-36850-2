@@ -1,4 +1,5 @@
 require 'rails_helper'
+<<<<<<< Updated upstream
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
@@ -124,3 +125,9 @@ RSpec.describe Item, type: :model do
     end
   end
 end
+=======
+
+RSpec.describe Item, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
+>>>>>>> Stashed changes

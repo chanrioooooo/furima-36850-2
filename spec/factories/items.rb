@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :item do
+<<<<<<< Updated upstream
     product_name  { '商品名' }
     explanation   { '商品説明' }
     category_id   { 2 }
@@ -16,3 +17,8 @@ FactoryBot.define do
     end
   end
 end
+=======
+    
+  end
+end
+>>>>>>> Stashed changes
