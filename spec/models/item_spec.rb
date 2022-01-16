@@ -2,7 +2,6 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
-    @item.image = fixture_file_upload('public/images/test_image.jpeg')
   end
 
   describe '商品情報の保存' do
@@ -14,6 +13,12 @@ RSpec.describe Item, type: :model do
     end
 
     context '商品情報を保存できないとき' do
+
+      it 'userが紐付いていなければ保存できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
+      end
 
       it 'imageが空では保存できない' do
         @item.image = nil
