@@ -10,6 +10,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string  :day_id,           null: false
       t.integer :price,            null: false
       t.string  :user_id,          null: false
+
+      t.timestamps
     end
   end
 end
