@@ -6,8 +6,9 @@ class Item < ApplicationRecord
   belongs_to :area
   belongs_to :day
 
-  belongs_to :user
+  belongs_to       :user
   has_one_attached :image
+  has_one          :purchase
 
   validates :image, :product_name, :explanation, :category, :situation, :consignor, :area, :day, :price, presence: true
 
