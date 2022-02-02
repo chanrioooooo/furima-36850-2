@@ -32,6 +32,9 @@
     <%# /支払額の表示 %>
 
     <%= form_with model: @purchase_address, url:item_purchases_path, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -97,7 +100,7 @@
           <label class="form-text">市区町村</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :municipality, class:"input-default", id:"city", placeholder:"例）横浜市緑区"%>
+        <%= f.text_field :municipalities, class:"input-default", id:"city", placeholder:"例）横浜市緑区"%>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
