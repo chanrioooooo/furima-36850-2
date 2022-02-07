@@ -40,7 +40,9 @@ class PurchasesController < ApplicationController
   end
 
   def confirmation_user
-    redirect_to root_path if current_user == @item.user || @item.purchase.present?
+    if current_user == @item.user || @item.purchase.present?
+      redirect_to root_path 
+    end
   end
 
 end
