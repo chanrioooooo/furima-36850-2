@@ -1,9 +1,10 @@
 class PurchaseAddress
   include ActiveModel::Model
   attr_accessor :post_code, :area_id, :municipalities, :address,
-                            :building, :telephone_num, :purchase, :user_id, :item_id
+                            :building, :telephone_num, :purchase, :user_id, :item_id, :token
 
   with_options presence: true do
+    validates :token,          presence: true
     validates :post_code,      format: { with: /\A\d{3}-\d{4}$|^\d{3}-\d{2}$|^\d{3}\z/ }
     validates :area_id,        numericality: { other_than: 1 , message: "can't be blank" }
     validates :municipalities
